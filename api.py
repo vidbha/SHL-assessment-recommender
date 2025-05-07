@@ -98,4 +98,8 @@ def recommend_endpoint(input: QueryInput):
 if __name__ == "__main__":
     import uvicorn
     port = int(os.environ.get("PORT", 10000))
+<<<<<<< HEAD
     uvicorn.run("api:app", host="0.0.0.0", port=port)
+=======
+    uvicorn.run("api:app", host="0.0.0.0", port=port)
+>>>>>>> a7b4a04cb42c7ae9291b59aae429ba8a95d0085f
