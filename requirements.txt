@@ -7,8 +7,4 @@ huggingface-hub==0.30.2
 streamlit==1.45.0
 torch==2.7.0
 transformers==4.51.3
-<<<<<<< HEAD
 uvicorn==0.34.2
-=======
-uvicorn==0.34.2
->>>>>>> fd85c66a2ed2f29f05bcbf9a45aab6a2fae92e0d
