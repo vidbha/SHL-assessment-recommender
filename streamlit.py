@@ -5,7 +5,7 @@ import re
 from sentence_transformers import SentenceTransformer, util
 
 # === Load model and data ===
-model = SentenceTransformer("intfloat/e5-large-v2")
+model = SentenceTransformer("intfloat/e5-large-v2",device='cpu')
 df = pd.read_csv("assessments_with_combined_text.csv")
 df["duration_minutes"] = pd.to_numeric(df["duration_minutes"], errors="coerce").fillna(0).astype(int)
 
