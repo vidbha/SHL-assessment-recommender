@@ -1,94 +1,98 @@
-🔍 SHL Assessment Recommender System
-This project is a GenAI-powered system that recommends SHL assessments based on natural language job descriptions or queries. It combines semantic search, keyword filtering, and duration-aware scoring using SentenceTransformer embeddings for accurate and context-aware recommendations.
+# SHL Assessment Recommender
 
-🔗 Demo App: Hugging Face Space
-📡 API Endpoint: Render App Docs
-📁 GitHub Repo: GitHub - SHL Assessment Recommender
+This project is a GenAI-powered SHL Assessment Recommender system that helps users find the most relevant SHL assessments based on natural language job descriptions or hiring queries. It supports semantic search, keyword filtering, and duration-based ranking to return accurate and job-aligned assessment recommendations.
 
-🚀 Features
-🔍 Semantic Search using SentenceTransformer (intfloat/e5-large-v2)
+---
 
-🧠 Keyword Matching to filter relevant assessments
+## 🔗 Demo Links
 
-⏱️ Duration-Aware Ranking based on query constraints
+- **API Swagger Docs**: [https://shl-assessment-recommender-wfao.onrender.com/docs](https://shl-assessment-recommender-wfao.onrender.com/docs)
+- **Web App** (HuggingFace Spaces): [https://huggingface.co/spaces/vidbha214/shl-assessment-recommender-shf5a7yyhkahaxdcartkya](https://huggingface.co/spaces/vidbha214/shl-assessment-recommender-shf5a7yyhkahaxdcartkya)
+- **GitHub Repository**: [https://github.com/vidbha/SHL-assessment-recommender](https://github.com/vidbha/SHL-assessment-recommender)
 
-🧾 Evaluation with Recall@10 and MAP@10
+---
 
-🌐 API Access via FastAPI
+## 📁 Project Structure
 
-🎛️ Interactive Web App via Hugging Face Spaces
-
-🧱 Project Structure
-bash
-Copy
-Edit
-.
-├── api.py                         # FastAPI backend
+```
+├── api.py                            # FastAPI server with endpoints
 ├── assessments_with_combined_text.csv
-├── combined_embs.pt               # Saved embeddings for combined text
-├── desc_title_embs.pt            # Saved embeddings for title + description
-├── requirements.txt              # Dependencies
-├── shl_assessment_recommendet.ipynb  # Main notebook
-├── .devcontainer/                # Dev container config
-├── chromedriver_win32/          # ChromeDriver (for scraping)
-├── experimented_datasets/       # Raw and cleaned datasets
-└── __pycache__/
-🧠 How It Works
-Input Query Example:
+├── combined_embs.pt                  # Embeddings for combined column
+├── desc_title_embs.pt               # Embeddings for desc + title
+├── requirements.txt
+├── shl_assessment_recommendet.ipynb # Development Notebook
+├── experimented_datasets/           # Raw and cleaned SHL data
+└── chromedriver_win32/              # ChromeDriver used for scraping
+```
 
-css
-Copy
-Edit
-"I want to hire Java developers for a 40-minute assessment who can work well with business teams."
-Semantic Filtering:
+---
 
-Computes embeddings for job descriptions and queries.
+## 🚀 Features
 
-Retrieves top matching assessments using cosine similarity.
+- Natural language job query input (e.g., "Looking for sales assessments under 60 minutes")
+- Two-stage semantic and keyword filtering
+- Duration-based scoring for user time preferences
+- Final ranking using SentenceTransformer embeddings and similarity metrics
+- Evaluation with Recall@10 and MAP@10
 
-Keyword Filtering:
+---
 
-Filters based on matching keywords from the query and metadata.
+## ⚙️ How It Works
 
-Final Scoring:
+- Loads the sentence transformer model `intfloat/e5-large-v2`
+- Encodes query and assessment metadata (titles, descriptions, keywords)
+- Filters candidates semantically and by keyword overlap
+- Computes duration match score
+- Ranks and returns top 10 assessments based on similarity + duration
 
-Computes a final score based on semantic similarity + duration closeness.
+---
 
-Returns top 10 recommended assessments with URLs.
+## 📦 API Usage
 
+**Endpoint**: `POST /recommend`
 
-📦 Installation
-bash
-Copy
-Edit
-git clone https://github.com/vidbha/SHL-assessment-recommender.git
+**Payload**:
+```json
+{
+  "query": "I'm hiring an entry-level content writer with strong English and SEO skills."
+}
+```
+
+**Response**:
+```json
+{
+  "recommendations": [
+    {
+      "name": "Search Engine Optimization (New)",
+      "url": "https://www.shl.com/products/product-catalog/view/search-engine-optimization-new/",
+      "duration": 40,
+      "remote": true,
+      "adaptive": true
+    },
+    ...
+  ]
+}
+```
+
+---
+
+## 🧱 Core Dependencies
+
+- `sentence-transformers`
+- `pandas`
+- `torch`
+- `FastAPI`
+- `Uvicorn`
+- `Gradio` (for HuggingFace UI)
+
+---
+
+## 📊 Run Locally
+
+```bash
+git clone https://github.com/vidbha/SHL-assessment-recommender
 cd SHL-assessment-recommender
 pip install -r requirements.txt
-▶️ Run Locally
-1. Generate Embeddings
-Run the Jupyter notebook shl_assessment_recommendet.ipynb to:
-
-Load and clean data
-
-Generate and save embeddings using intfloat/e5-large-v2
-
-2. Start API
-bash
-Copy
-Edit
 uvicorn api:app --reload
-Then open http://localhost:8000/docs to test.
+```
 
-🌍 Deployment
-Backend: Render (FastAPI)
-
-Frontend: Hugging Face Spaces (Gradio or Streamlit)
-
-Data Storage: Local CSV + PyTorch-serialized embeddings
-
-🙌 Acknowledgements
-SHL for publicly available assessment catalog
-
-Hugging Face for SentenceTransformer
-
-Hackathon organizers for the evaluation dataset
