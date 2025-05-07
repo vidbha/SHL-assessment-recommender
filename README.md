@@ -9,7 +9,7 @@ This project is a GenAI-powered SHL Assessment Recommender system that helps use
 - **API Swagger Docs**: [https://shl-assessment-recommender-wfao.onrender.com/docs](https://shl-assessment-recommender-wfao.onrender.com/docs)
 - **Web App** (HuggingFace Spaces): [https://huggingface.co/spaces/vidbha214/shl-assessment-recommender-shf5a7yyhkahaxdcartkya](https://huggingface.co/spaces/vidbha214/shl-assessment-recommender-shf5a7yyhkahaxdcartkya)
 - **GitHub Repository**: [https://github.com/vidbha/SHL-assessment-recommender](https://github.com/vidbha/SHL-assessment-recommender)
-
+- **FastApi Deployment**: [https://huggingface.co/spaces/vidbha214/link](https://huggingface.co/spaces/vidbha214/link)
 ---
 
 ## 📁 Project Structure
