@@ -23,6 +23,12 @@ DESC_CAND_K = 30
 class QueryInput(BaseModel):
     query: str
 
+# ✅ Health check route
+@app.get("/")
+def root():
+    return {"message": "SHL Assessment Recommender is running!"}
+
+# ✅ Main recommend route
 @app.post("/recommend")
 def recommend_assessments(input: QueryInput):
     query = input.query
