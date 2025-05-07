@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>SHL Assessment Recommender Result</title>
+</head>
+<body>
+  <h2>SHL Assessment Results for: "data science"</h2>
+  <pre id="response">Loading...</pre>
+
+  <script>
+    fetch("https://vidbha214-shl-fastapi.hf.space/recommend", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ query: "Looking for assessments related to data science" })
+    })
+    .then(res => res.json())
+    .then(data => {
+      document.getElementById("response").textContent = JSON.stringify(data, null, 2);
+    })
+    .catch(err => {
+      document.getElementById("response").textContent = "Error: " + err;
+    });
+  </script>
+</body>
+</html>
