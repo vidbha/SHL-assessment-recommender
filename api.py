@@ -20,6 +20,9 @@ app = FastAPI()
 
 class QueryInput(BaseModel):
     query: str
+@app.get("/")
+def root():
+    return {"message": "SHL Assessment Recommender API is live"}
 
 @app.get("/health")
 def health_check():
@@ -87,3 +90,9 @@ def recommend_endpoint(input: QueryInput):
         })
 
     return {"results": results}
+import os
+if __name__ == "__main__":
+    import uvicorn
+    port = int(os.environ.get("PORT", 10000))  # Use Render's dynamic port
+    uvicorn.run("api:app", host="0.0.0.0", port=port)
+
