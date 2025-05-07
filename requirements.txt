@@ -2,9 +2,6 @@ pandas==2.2.3
 torch==2.7.0
 sentence-transformers==2.2.0
 huggingface_hub==0.14.1
+streamlit==1.45.0
 fastapi==0.115.12
 pydantic==2.11.4
-streamlit==1.45.0
-selenium==4.32.0
-webdriver-manager==4.0.2
-beautifulsoup4==4.13.4
