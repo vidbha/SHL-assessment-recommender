@@ -1,0 +1,57 @@
+# Byte-compiled / optimized files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Environment files
+.env
+.venv/
+venv/
+ENV/
+env/
+*.env
+
+# Devcontainer
+.devcontainer/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# OS-specific junk
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Logs and temp
+*.log
+*.tmp
+
+# IDE configs
+.vscode/
+.idea/
+
+# Python egg/dist info
+*.egg
+*.egg-info/
+dist/
+build/
+
+# Dataset and model files
+*.csv
+*.pt
+*.pkl
+*.joblib
+*.h5
+*.xlsx
+*.zip
+*.tsv
+
+
+assessments_with_combined_text.csv
+combined_embs.pt
+desc_title_embs.pt
+
+
+experimented_datasets/
+chromedriver_win32/
