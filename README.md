@@ -17,8 +17,7 @@ This project is a GenAI-powered SHL Assessment Recommender system that helps use
 ```
 ├── api.py                            # FastAPI server with endpoints
 ├── requirements.txt
-├── shl_assessment_recommendet.ipynb # Development Notebook
-      # ChromeDriver used for scraping
+├── shl_assessment_recommendet.ipynb # Development Notebook  
 ```
 
 ---
