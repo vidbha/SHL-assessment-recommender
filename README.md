@@ -17,8 +17,6 @@ This project is a GenAI-powered SHL Assessment Recommender system that helps use
 ```
 ├── api.py                            # FastAPI server with endpoints
 ├── assessments_with_combined_text.csv
-├── combined_embs.pt                  # Embeddings for combined column
-├── desc_title_embs.pt               # Embeddings for desc + title
 ├── requirements.txt
 ├── shl_assessment_recommendet.ipynb # Development Notebook
 ├── experimented_datasets/           # Raw and cleaned SHL data
